@@ -1,17 +1,9 @@
-export default function Post({ post, setPosts, index, posts}) {
-  // console.log(onDelete())
-  function deleteHandler() {
-    setPosts(posts.filter((elem, id)=>{index==id}))
-  }
+export default function Post({ post, onDelete }) {
   return (
     <li>
-      {post.editMode ? (
-        <input/>
-      ) : (
-        post.content
-      )}
-      <button onClick={deleteHandler}>{post.editMode ? 'ok' : 'delete'}</button>
-      <button>{post.editMode ? 'cancel' : 'edit'}</button>
+      {post.editMode ? <input /> : post.content}
+      <button onClick={onDelete}>{post.editMode ? "ok" : "delete"}</button>
+      <button>{post.editMode ? "cancel" : "edit"}</button>
     </li>
-  )
+  );
 }
