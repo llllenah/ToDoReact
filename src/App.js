@@ -4,32 +4,26 @@ import PostsList from './Components/PostsList.js';
 import { useState } from 'react';
 
 function App() {
-  const [counter,setCounter] = useState(0)
-  let initialPosts = [{
-    content: 'kommm',
-    comments: ['kom1', 'kom2'],
+  let initialPosts = []
+  const [posts, setPosts] = useState(initialPosts)
+  const [inputOne, setInputOne] = useState('');
+  function adder() {
+    posts.push({
+    content: inputOne,
     editMode: false
-}, {
-    content: 'eeeeeeeekommm',
-    comments : ['vvvvvkom1','kom2'],
-    editMode: true
-    }, {
-    content: 'ol;eeeeeeeekommm',
-    comments : ['11111111111vvvvvkom1','kom2'],
-    editMode: false 
-    }]
-  const [posts,setPosts] = useState(initialPosts)
-  function clickHandler() {
-    setCounter(counter+1)
-    console.log(counter)
-  } 
+    })
+    setPosts(posts.map(post => post))
+  }
   return (
     <>
-      <button onClick={clickHandler}>{ counter}</button>
+      <center><input onChange={(event) => setInputOne(event.target.value)}/>
+        <button onClick={adder}>Add</button>
+      </center>
+      <br />
+      <br/>
       <ol className="App">
         <PostsList posts={ posts } setPosts = { setPosts } /> 
-        
-        </ol>
+      </ol>
       </>
   );
 
