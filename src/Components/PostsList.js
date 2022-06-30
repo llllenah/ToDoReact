@@ -7,7 +7,8 @@ export default function PostsList({ posts, setPosts }) {
         setPosts={setPosts}
         key={index}
         index={index}
-        posts={posts } />
+        posts={posts}
+        coments={post.coments} />
     )
         })
 }

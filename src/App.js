@@ -4,7 +4,20 @@ import PostsList from './Components/PostsList.js';
 import { useState } from 'react';
 
 function App() {
-  let initialPosts = []
+  let initialPosts = [{
+    content: 'ljhgfds',
+    editMode: true,
+    coments: ['ddddddd','kjhgfd']
+  },
+    {
+    content: 'poiuygtfrcd',
+    editMode: false,
+    coments: ['kjhgfdsxza','22222d']},
+    {
+    content: '333333333cont',
+    editMode: false,
+    coments: ['33com','lkjhgfd']
+  }]
   const [posts, setPosts] = useState(initialPosts)
   const [inputOne, setInputOne] = useState('');
   function adder() {
